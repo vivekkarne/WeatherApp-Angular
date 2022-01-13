@@ -1,0 +1,26 @@
+<div class="container">
+  <ul ngbNav #nav="ngbNav" class="mt-3 nav-tabs justify-content-end">
+    <li ngbNavItem="dayview" class="flex-shrink-1">
+      <a ngbNavLink routerLink="day" routerLinkActive="active">Day View</a>
+
+    </li>
+    <li ngbNavItem="dailytemp">
+      <a ngbNavLink routerLink="daily" routerLinkActive="active">Daily Temp. Chart</a>
+
+    </li>
+    <li ngbNavItem="meteogram">
+      <a ngbNavLink routerLink="meteo" routerLinkActive="active">Meteogram</a>
+      <!-- <ng-template ngbNavContent>
+      <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+        Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+        Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
+        egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
+        tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+        magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+        neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+    </ng-template> -->
+    </li>
+  </ul>
+</div>
+<!-- <div [ngbNavOutlet]="nav" class="mt-2"></div> -->
+<router-outlet></router-outlet>

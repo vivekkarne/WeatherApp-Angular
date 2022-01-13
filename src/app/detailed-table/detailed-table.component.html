@@ -1,0 +1,49 @@
+<!-- <p>works</p> -->
+<!-- <div>{{details | json}}</div> -->
+
+<div class="container mt-4">
+    <table class="table table-striped">
+        <tbody>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Status</td>
+                <td class="col">{{details.weatherStatus}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Max Temperature</td>
+                <td class="col">{{details.tempMax}} &deg;F</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Min Temperature</td>
+                <td class="col">{{details.tempMin}} &deg;F</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Apparent Temperature</td>
+                <td class="col">{{details.apparentTemp}} &deg;F</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Sun Rise Time</td>
+                <td class="col">{{details.sunRise | date: 'HH:mm:ss'}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Sun Set Time</td>
+                <td class="col">{{details.sunSet | date: 'HH:mm:ss'}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Humidity</td>
+                <td class="col">{{details.humidity}} %</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Wind Speed</td>
+                <td class="col">{{details.windSpeed}} mph</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Visibility</td>
+                <td class="col">{{details.visibility}} mi</td>
+            </tr>
+            <tr class="row">
+                <td class="col-6 col-md-4 font-weight-bold">Cloud Cover</td>
+                <td class="col">{{details.cloudCover}} %</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+.main-form {
+    margin-top: 3em;
+    border: 1px solid lightgray;
+    border-radius: 1%;
+    background-color: #f4f4f4;
+}
+
+.material-icons {
+    display:inline-flex;
+    vertical-align:top;
+}
+
+.req:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}

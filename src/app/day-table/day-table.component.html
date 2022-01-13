@@ -1,0 +1,30 @@
+
+<div class="table-responsive fixed-table-body">
+<table class="mt-2 table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Temp. High (&deg; F)</th>
+      <th scope="col">Temp. Low (&deg; F)</th>
+      <th scope="col">Wind Speed (mph)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let day of data; index as i">
+      <th scope="row" class="align-middle">{{ i + 1 }}</th>
+      <td class="align-middle">
+        <a [routerLink]="['/results/details/' + day.startTime]">{{ day.startTime | date:'EEEE, dd MMM YYYY'}}</a>
+      </td>
+      <td class="align-middle">
+        <img [src]=day.imgLoc class="mr-2" style="width: 35px">
+        <span>{{day.weatherStatus}}</span>
+      </td>
+      <td class="align-middle">{{ day.tempMax }}</td>
+      <td class="align-middle">{{ day.tempMin }}</td>
+      <td class="align-middle">{{ day.windSpeed }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

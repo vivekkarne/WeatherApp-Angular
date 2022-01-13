@@ -1,0 +1,21 @@
+<div class="container px-0 myNav">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills btn" orientation="horizontal">
+                    <li ngbNavItem="results">
+                        <a ngbNavLink routerLink="/results" routerLinkActive="active">Results</a>
+                        <!-- <ng-template ngbNavContent>
+                            <app-results></app-results>
+                        </ng-template> -->
+                    </li>
+                    <li ngbNavItem="favorites">
+                        <a ngbNavLink routerLink="/favorites" routerLinkActive="active">Favorites</a>
+                        <!-- <ng-template ngbNavContent><app-favorites></app-favorites></ng-template> -->
+                    </li>
+                </ul>
+        </div>
+    </div>
+    <!-- <div *ngIf="fetched" [ngbNavOutlet]="nav"></div> -->
+    <router-outlet *ngIf="!clear || fetched || !loading "></router-outlet>
+    <app-loading *ngIf="loading"></app-loading>
+</div>

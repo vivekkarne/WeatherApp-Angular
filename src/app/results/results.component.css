@@ -1,0 +1,27 @@
+.custom-btn {
+    border: 1px solid #888 !important;
+}
+
+.yellow {
+    color: #f0ad4e;
+}
+
+a:hover div{
+    text-decoration: underline;
+}
+
+.gray {
+    color: gray;
+    text-decoration: none;
+}
+
+a mat-icon {
+    align-content: center;
+    position:relative;
+    top:-2px;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+ }

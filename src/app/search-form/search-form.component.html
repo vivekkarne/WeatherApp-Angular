@@ -1,0 +1,80 @@
+<div class="container main-form p-0">
+    <form [formGroup]="searchForm" class="container p-3" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+            <h1 class="col ml-auto text-center font-weight-bold">Weather Search ⛅</h1>
+        </div>
+        <div class="form-group row">
+            <label for="inputStreet" class="req col-sm-3 offset-sm-1 pt-2 col-lg-2 offset-lg-2 pt-2">Street</label>
+            <div class="col-sm-7 col-lg-6 mr-auto pt-1">
+                <input type="text" class="form-control" id="inputStreet" formControlName="street" [class.is-invalid]="searchForm.get('street').invalid && (searchForm.get('street').dirty || searchForm.get('street').touched)">
+                <div *ngIf="street && street.invalid && (street.dirty || street.touched)" class="text-danger">
+                    <small *ngIf="street.errors?.['required'] || street.errors?.['space'] ">
+                        Please enter a valid street
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCity" class="req col-sm-3 offset-sm-1 pt-2 col-lg-2 offset-lg-2 pt-2">City</label>
+            <div class="col-sm-7 col-lg-6 mr-auto pt-1">
+                <input type="text" class="form-control" id="inputCity" formControlName="city" [matAutocomplete]="auto" [class.is-invalid]="searchForm.get('city').invalid && (searchForm.get('city').dirty || searchForm.get('city').touched)">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of cityPairs | async" [value]="option.city" (onSelectionChange)="updateState(option.state)">
+                      {{option.city + ', ' + option.state}}
+                    </mat-option>
+                  </mat-autocomplete>
+                <div *ngIf="city && city.invalid && (city.dirty || city.touched)" class="text-danger">
+                    <small *ngIf="city.errors?.['required'] || city.errors?.['space'] ">
+                        Please enter a valid city
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mb-2">
+            <label for="inputState" class="col-sm-3 offset-sm-1 pt-2 col-lg-2 offset-lg-2 pt-2">State</label>
+            <div class="col-sm-5 col-md-3 mr-auto pt-1">
+                <select class="form-control" id="inputState" formControlName="state" >
+                    <option *ngFor="let _state of states" [ngValue]="_state.abbreviation">
+                        {{ _state.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+                <hr>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="autoChecked" class="req col-sm-3 offset-sm-1 offset-lg-2 col-lg-2 pt-2">Auto-Detect Location</label>
+            <div class="col-sm-3 pt-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autoChecked" formControlName="autoDetect" (change)="checkToggle()" >
+                    <label for="autoChecked">
+                        Current Location
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-8 offset-sm-1 offset-lg-2 col-lg-8 pt-2">
+                <div class="row no-gutters">
+                    <div class="col-4 col-md-3 col-lg-2 pt-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!((searchForm.valid && !this.autoDetect?.value)||(isIpInfo && this.autoDetect?.value))">
+                            <mat-icon class="material-icons">search</mat-icon>Search
+                        </button>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 pt-2">
+                        <button type="button" class="btn btn-outline-dark" (click)="clearForm()">
+                            <mat-icon class="material-icons">clear_all</mat-icon>Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+<!-- 
+    <p> {{street?.value}} </p>
+    <p> {{searchForm.get('city')!.value}} </p>
+    <p> {{searchForm.get('state')!.value}} </p> -->
+</div>
